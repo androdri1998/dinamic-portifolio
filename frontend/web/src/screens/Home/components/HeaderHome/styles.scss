@@ -1,0 +1,30 @@
+.title-home-index {
+    color: white;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.title-home-second {
+    color: white;
+}
+
+.line-social {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+
+    .mail {
+        font-weight: bold;
+    }
+
+    p {
+        margin-right: 10px;
+        cursor: pointer;
+        color: white;
+    }
+
+    a{
+        text-decoration: none;
+    }
+}
