@@ -7,6 +7,16 @@
     color: white;
 }
 
+.line-title-work {
+    display: flex;
+
+    i {
+        font-size: 40px;
+        margin-left: 10px;
+        color: white;
+    }
+}
+
 .line-social {
     display: flex;
     flex-direction: row;
