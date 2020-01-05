@@ -1,121 +1,19 @@
-.grid {
-    display: grid;
-
-    .item-skill{
-        margin: 5px;
-    };
-}
-
-.grid-template-column {
-    grid-template-columns: 1fr;
-
-    @media screen and (min-width: 950px) {
-        grid-template-columns: 1fr 1fr;
-    };
-
-    // @media screen and (min-width: 769px) {
-    //     grid-template-columns: 1fr 1fr 1fr;
-    // };
-
-    @media screen and (min-width: 1280px) {
-        grid-template-columns: 1fr 1fr 1fr;
-    };
-}
-
 .content-home {
     display: flex;
     flex-direction: column;
     padding-left: 15px;
     padding-right: 15px;
 
-    .container-description {
-        max-height: 60vh;
-        padding-bottom: 20px;
-        overflow-y: auto;
-        margin-top: 20px;
-    }
-
-    .description-profile {
-        display: none;
-        color: white;
-        flex: 1;
-        max-width: 300px;
-        text-align: left;
-        font-size: 1.2em;
-
-        @media screen and (min-width: 600px) {
-            display: block;
-        };
-    }
-
-    .flex-header {
-        margin-top: 40px;
-        margin-bottom: 10px;
-        display: flex;
-        
-        .header-info {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-    };
-
-    .container-profile {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: white;
-        border-radius: 50%;
-        width: 75px;
-        height: 75px;
-        margin-right: 10px;
-    };
-
     @media screen and (min-width: 600px) {
         flex-direction: row;
-
-        .flex-header {
-            padding: 40px;
-            padding-top: 0;
-        }
     };
 }
 
 .items-home {
     @media screen and (min-width: 600px) {
         flex: 1;
-        .items-render {
-            max-height: 83vh;
-            overflow-y: auto;
-        }
     };
 }
 
-.img-header-home {
-    height: 70px;
-    border-radius: 50%;
-}
 
-.buttons-line {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
 
-    @media screen and (min-width: 600px) {
-        padding: 10px;
-        margin-bottom: 10px;
-    };
-
-    button {
-        cursor: pointer;
-        border: none;
-        border-bottom: solid 1px white;
-        background: transparent;
-        padding: 10px;
-        min-width: 100px;
-        font-size: 20px;
-        color: white;
-    };
-}

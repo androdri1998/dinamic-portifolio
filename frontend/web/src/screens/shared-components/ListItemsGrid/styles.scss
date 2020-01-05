@@ -1,0 +1,30 @@
+.grid {
+    display: grid;
+
+    .item-skill{
+        margin: 5px;
+    };
+}
+
+.grid-template-column {
+    grid-template-columns: 1fr;
+
+    @media screen and (min-width: 950px) {
+        grid-template-columns: 1fr 1fr;
+    };
+
+    // @media screen and (min-width: 769px) {
+    //     grid-template-columns: 1fr 1fr 1fr;
+    // };
+
+    @media screen and (min-width: 1280px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    };
+}
+
+.items-render {
+    @media screen and (min-width: 600px) {
+        max-height: 83vh;
+        overflow-y: auto;
+    }
+}

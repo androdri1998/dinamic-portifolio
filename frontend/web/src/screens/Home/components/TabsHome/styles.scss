@@ -1,0 +1,33 @@
+.buttons-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+
+    @media screen and (min-width: 600px) {
+        padding: 10px;
+        margin-bottom: 10px;
+    };
+
+    button {
+        cursor: pointer;
+        border: none;
+        border-bottom: solid 1px white;
+        background: transparent;
+        padding: 10px;
+        min-width: 100px;
+        font-size: 20px;
+        color: white;
+    };
+}
+
+.selectedTab {
+    font-weight:bold;
+    opacity: 1
+}
+
+.noSelectedTab {
+    font-weight: 400;
+    opacity: 0.7
+}
