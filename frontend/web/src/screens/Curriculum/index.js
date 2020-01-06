@@ -1,11 +1,11 @@
 import React from 'react';
 
 import CurriculumPdf from '../../database/curriculum.pdf';
-import PdfView from '../shared-components/PdfView';
+import PdfViewApp from '../shared-components/PdfView/PdfViewApp';
 
 export default function Curriculum(){
     return (
-        <PdfView 
+        <PdfViewApp 
             file={CurriculumPdf}
             />
     );

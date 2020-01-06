@@ -1,27 +1,39 @@
-import React, {useState, useEffect} from 'react';
-import { Document, Page } from 'react-pdf/dist/entry.webpack';
+import React, {useState} from 'react';
+import PdfView from './PdfView';
 
 import './styles.scss';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 
-export default function PdfViewApp({ file, onDocumentLoadSuccess, pageNumber, numPages, decrement, increment }){
+export default function PdfViewApp({ file }){
+    const [numPages, setNumPages] = useState(null);
+    const [pageNumber, setPageNumber] = useState(1);
+
+    function onDocumentLoadSuccess({numPages}){
+        setNumPages(numPages);
+    }
+
+    function increment(){
+        if(pageNumber < numPages){
+            let auxSum = pageNumber+1;
+            setPageNumber(auxSum);
+        }
+    }
+
+    function decrement(){
+        if(pageNumber > 1){
+            let auxSub = pageNumber-1;
+            setPageNumber(auxSub);
+        }
+    }
+
     return (
-        <div className="container-curriculum">
-            <Document
-                file={file}
-                onLoadSuccess={onDocumentLoadSuccess}
-            >
-                <Page 
-                    size="A4" 
-                    pageNumber={pageNumber}
-                    renderTextLayer={false} 
-                />
-            </Document>
-            <div className="line-pages">
-                <button onClick={decrement}><i className="material-icons noselect">keyboard_arrow_left</i></button>
-                <p>Página {pageNumber} de {numPages}</p>
-                <button onClick={increment}><i className="material-icons noselect">keyboard_arrow_right</i></button>
-            </div>
-        </div>
+        <PdfView 
+            file={file}
+            onDocumentLoadSuccess={onDocumentLoadSuccess}
+            pageNumber={pageNumber}
+            numPages={numPages}
+            decrement={decrement}
+            increment={increment}
+            />
     );
 }

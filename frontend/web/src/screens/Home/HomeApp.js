@@ -1,22 +1,41 @@
 import React, {useEffect, useState} from 'react';
-import ContentProfile from '../shared-components/ContentProfile';
-import TabsHome from './components/TabsHome';
-import ListItemsGrid from '../shared-components/ListItemsGrid';
-import './styles.scss';
+import Home from './Home';
+import tabsHome from '../../utils/tabsHome.constantes';
+import {
+    getSkills,
+    getGithubRepositories,
+    getGithubUsername,
+} from '../../functions/getsData';
 
-export default function HomeApp({ onChangeTab, data, tab }){
+export default function HomeApp() {
+    const [repositorios, setRepositorios] = useState(null);
+    const [tab, setTab] = useState(tabsHome.SKILLS);
+    const [renderData, setRenderData] = useState(getSkills());
+    
+    useEffect(() => {
+        if(getGithubUsername()){
+            async function getRepositorios(){
+                const response = await getGithubRepositories(getGithubUsername());   
+                setRepositorios((response || null));
+            }
+            getRepositorios();
+        }
+    },[]);
+
+    function handlerTab(tabName) {
+        setTab(tabName);
+        if(tabName === tabsHome.SKILLS){
+            setRenderData(getSkills());
+        }else if( tabName === tabsHome.GIT){
+            setRenderData(repositorios);
+        }
+    }
+
     return (
-        <section className="content-home">
-            <ContentProfile />
-            <section className="flex column items-home">
-                <TabsHome 
-                    onChange={(tab) => { if(onChangeTab) onChangeTab(tab)}}
-                    />
-                <ListItemsGrid
-                    data={data}
-                    tab={tab}
-                    />
-            </section>
-        </section>
+        <Home 
+            onChangeTab={handlerTab}
+            data={renderData}
+            tab={tab}
+            />
     );
 }
