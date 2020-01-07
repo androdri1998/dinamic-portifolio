@@ -1,12 +1,17 @@
 import React from 'react';
 
-import CurriculumPdf from '../../database/curriculum.pdf';
 import PdfViewApp from '../shared-components/PdfView/PdfViewApp';
+import { verifyRoute, getCurriculum } from '../../functions/curriculum';
 
 export default function Curriculum(){
     return (
-        <PdfViewApp 
-            file={CurriculumPdf}
-            />
+        <>
+            {verifyRoute()
+                ?(<PdfViewApp 
+                    file={getCurriculum()}
+                    />)
+                : null
+            }
+        </>
     );
 }

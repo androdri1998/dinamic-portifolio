@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {lazy, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
 import './styles.scss';
@@ -10,15 +10,17 @@ import {
     getLinkedin
 } from '../../../../functions/getsData';
 import { urls } from '../../../../utils/urls.constants';
+import { verifyRoute } from '../../../../functions/curriculum';
 
 export default function HeaderHome() {
+    
     return (
         <header className="header-home">
             <div className="line-title-work">
                 <h2 className="h2 title-home-index">{getWorking()}</h2>
-                <Link to={urls.ABOUT} target="_blank">
+                {verifyRoute() && <Link to={urls.ABOUT} target="_blank">
                     <i className="material-icons noselect">link</i>
-                </Link>
+                </Link>}
             </div>
             <h6 className="h6 title-home-second">{getWorkingSubtitle()}</h6>
             {(getMail() || getLinkedin() || getInstagram()) && <section className="line-social">
