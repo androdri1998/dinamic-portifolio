@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import tabsHome from '../../../../utils/tabsHome.constantes';
 import { getGithubUsername } from '../../../../functions/getsData';
 
