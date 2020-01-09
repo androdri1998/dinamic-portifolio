@@ -4,6 +4,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import Routes from './routes/routes';
 import { getName } from './functions/getsData';
 import reducers from './store/reducers';
+import SettingsRightApp from './screens/shared-components/SettingsRight/SettingsRightApp';
 
 const middleware = [];
 
@@ -24,6 +25,7 @@ function App() {
         </header>
         <div className="content-body">
           <Routes />
+          <SettingsRightApp />
         </div>
       </div>
     </Provider>
