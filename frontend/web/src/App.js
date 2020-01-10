@@ -1,10 +1,10 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
-import Routes from './routes/routes';
-import { getName } from './functions/getsData';
+
 import reducers from './store/reducers';
 import SettingsRightApp from './screens/shared-components/SettingsRight/SettingsRightApp';
+import Layout from './Layout';
 
 const middleware = [];
 
@@ -19,14 +19,9 @@ const store = createStore(reducers(),
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        <header className="header-default">
-          {getName()}
-        </header>
-        <div className="content-body">
-          <Routes />
-          <SettingsRightApp />
-        </div>
+      <div className="flex row">
+        <Layout />
+        <SettingsRightApp />
       </div>
     </Provider>
   );
